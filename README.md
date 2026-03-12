@@ -1,5 +1,5 @@
 # PDStore
-Projeto desenvolvido como parte do **Desafio final do Projeto Desenvolve Itabira**, com o objetivo de criar uma aplicação de e-commerce utilizando **React** e consumo de API externa.  A aplicação permite que usuários naveguem por produtos, filtrem categorias, visualizem detalhes de itens e gerenciem um carrinho de compras. # 🛒 DevStore - E-commerce Frontend
+Projeto desenvolvido como parte do **Desafio final do Projeto Desenvolve Itabira**, com o objetivo de criar uma aplicação de e-commerce utilizando **React** e consumo de API externa.  A aplicação permite que usuários naveguem por produtos, filtrem categorias, visualizem detalhes de itens e gerenciem um carrinho de compras. # 🛒 PDStore
 
 ---
 
@@ -121,13 +121,13 @@ src
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/devstore
+git clone https://github.com/árvore-dev/PDStore
 ```
 
 Entre na pasta do projeto:
 
 ```bash
-cd devstore
+cd PDStore
 ```
 
 Instale as dependências:
@@ -178,6 +178,6 @@ Este projeto tem como objetivo demonstrar habilidades em:
 
 Desenvolvido por:
 
-**Leandro Anastácio de Freitas**
+**Leandro Freitas**
 
-Projeto acadêmico de **Trabalho de Conclusão de Curso (TCC)**.
+Projeto acadêmico de **Desafio final - projeto desenvolve Itabira**.
