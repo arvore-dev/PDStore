@@ -1,8 +1,8 @@
 # 🛒 PDStore
 
-Projeto desenvolvido como parte do **Desafio Final do Projeto Desenvolve Itabira**, com o objetivo de construir uma aplicação completa de e-commerce utilizando **React**, consumo de API externa e gerenciamento de estado.
+Projeto desenvolvido como parte do **Desafio Final do Projeto Desenvolve Itabira**, com o objetivo de criar uma aplicação de e-commerce utilizando **React**, consumo de API externa e gerenciamento de estado global.
 
-A aplicação permite que usuários naveguem por produtos, filtrem categorias, visualizem detalhes e gerenciem um carrinho de compras de forma dinâmica.
+A aplicação permite que usuários naveguem por produtos, filtrem categorias, visualizem detalhes e realizem compras simuladas.
 
 ---
 
@@ -13,19 +13,20 @@ A aplicação permite que usuários naveguem por produtos, filtrem categorias, v
 * React Router DOM
 * Context API
 * Axios
-* CSS
+* CSS (customizado)
+* LocalStorage
 
 ---
 
 # 🌐 API Utilizada
 
-Este projeto utiliza duas APIs públicas para simulação de dados:
+O projeto consome dados de duas APIs públicas:
 
 ### Fake Store API
 
 https://fakestoreapi.com
 
-### DummyJSON
+### DummyJSON API
 
 https://dummyjson.com/products
 
@@ -33,115 +34,150 @@ https://dummyjson.com/products
 
 # 📦 Funcionalidades
 
-## 🛍 Listagem de Produtos
+### 🛍 Listagem de Produtos
 
-* Exibição de produtos em grid responsivo
-* Imagem, nome, preço e avaliação
-* Navegação para página de detalhes
+* Exibição em grid responsivo
+* Nome, imagem, preço e avaliação
+* Botão de adicionar ao carrinho
 
-## 🔎 Filtro por Categoria
+---
+
+### 🏷 Filtro por Categoria
 
 * Filtragem dinâmica por categorias
-* Atualização instantânea dos produtos
+* Atualização em tempo real dos produtos
 
-## 📄 Detalhes do Produto
+---
 
-* Visualização completa do item
-* Descrição detalhada
-* Botão para adicionar ao carrinho
+### 🔎 Página de Detalhes
 
-## 🛒 Carrinho de Compras
+* Imagem ampliada
+* Descrição completa
+* Preço
+* Botão de compra
 
-* Adicionar e remover produtos
+---
+
+### 🛒 Carrinho de Compras
+
+* Adicionar produtos
+* Remover produtos
 * Atualizar quantidade
 * Cálculo automático de total
 
-## 💳 Checkout
+---
 
-* Simulação de pagamento
-* Opção de cartão e Pix
+### 💳 Checkout e Pagamento
+
+* Simulação de pagamento via:
+
+  * Cartão de crédito
+  * Pix
 * Validação de dados
+* Feedback de sucesso ou erro
 
-## 🌙 Dark Mode
+---
 
-* Alternância entre tema claro e escuro
-* Persistência com localStorage
+### 💾 Persistência de Dados
 
-## 💾 Persistência de Dados
+* Usuários e carrinho salvos no **localStorage**
+* Carrinho vinculado ao usuário logado
 
-* Carrinho salvo por usuário
-* Dados armazenados no localStorage
+---
+
+### 🌙 Dark Mode
+
+* Alternância de tema claro/escuro
+* Preferência salva no navegador
+
+---
+
+# 🔐 Credenciais de Login (Teste)
+
+Use os usuários abaixo para acessar o sistema:
+
+* Email: `admin@email.com`
+  Senha: `admin123`
+
+* Email: `user@email.com`
+  Senha: `user123`
+
+* Email: `teste@email.com`
+  Senha: `teste123`
+
+---
+
+# 💳 Dados para Teste de Pagamento
+
+### Cartão de Crédito
+
+* Número: `4111 1111 1111 1111`
+* Nome: `CLIENTE TESTE`
+* Validade: `12/30`
+* CVV: `123`
+
+### ⚠️ Regras
+
+* O pagamento só será aprovado com esses dados exatos
+* Qualquer diferença resultará em erro
+
+---
+
+### ⚡ Pix
+
+* Basta selecionar a opção Pix
+* Pagamento aprovado automaticamente
 
 ---
 
 # 📂 Estrutura do Projeto
 
 ```
-ecommerce-frontend/
-│
-├── public/
-│   └── (imagens como visa.png, pix.png, etc)
-│
-├── src/
-│   ├── assets/
-│   │   └── logos
-│   │
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Footer.jsx
-│   │   ├── ProductCard.jsx
-│   │   ├── Rating.jsx
-│   │   └── Notification.jsx
-│   │
-│   ├── context/
-│   │   ├── AuthContext.jsx
-│   │   └── CartContext.jsx
-│   │
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── ProductDetail.jsx
-│   │   ├── Cart.jsx
-│   │   ├── Checkout.jsx
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   ├── About.jsx
-│   │   └── Contact.jsx
-│   │
-│   ├── services/
-│   │   └── api.js
-│   │
-│   ├── styles/
-│   │   └── global.css
-│   │
-│   ├── App.jsx
-│   └── main.jsx
-│
-└── package.json
+src
+ ├── components
+ │   ├── Header.jsx
+ │   ├── Footer.jsx
+ │   ├── ProductCard.jsx
+ │   ├── Rating.jsx
+ │   └── Notification.jsx
+ │
+ ├── context
+ │   ├── AuthContext.jsx
+ │   └── CartContext.jsx
+ │
+ ├── pages
+ │   ├── Home.jsx
+ │   ├── Login.jsx
+ │   ├── Register.jsx
+ │   ├── Cart.jsx
+ │   ├── Checkout.jsx
+ │   ├── ProductDetail.jsx
+ │   ├── About.jsx
+ │   └── Contact.jsx
+ │
+ ├── services
+ │   └── api.js
+ │
+ ├── styles
+ │   └── global.css
+ │
+ ├── App.jsx
+ └── main.jsx
 ```
 
 ---
 
 # ⚙️ Como Executar o Projeto
 
-## 📥 1. Clonar o repositório
-
-```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-```
-
----
-
-## 📂 2. Acessar a pasta do projeto
+### 1. Acesse a pasta do projeto
 
 ```bash
 cd Desktop/TccPD/ecommerce-frontend
 ```
 
-> ⚠️ Caminho baseado no ambiente de desenvolvimento do autor (Windows)
-
 ---
 
-## 📦 3. Instalar dependências
+### 2. Instale as dependências
 
 ```bash
 npm install
@@ -149,7 +185,7 @@ npm install
 
 ---
 
-## ▶️ 4. Executar o projeto
+### 3. Execute o projeto
 
 ```bash
 npm run dev
@@ -157,7 +193,7 @@ npm run dev
 
 ---
 
-## 🌐 5. Acessar no navegador
+### 4. Acesse no navegador
 
 ```
 http://localhost:5173
@@ -167,13 +203,17 @@ http://localhost:5173
 
 # 📱 Responsividade
 
-O projeto foi desenvolvido com foco em responsividade:
+O projeto foi desenvolvido para funcionar em:
 
 * 💻 Desktop
 * 📱 Mobile
 * 📟 Tablets
 
-Utilizando **CSS Grid + Flexbox + Media Queries**
+Utilizando:
+
+* CSS Grid
+* Flexbox
+* Media Queries
 
 ---
 
@@ -183,23 +223,26 @@ Demonstrar habilidades em:
 
 * Desenvolvimento Frontend com React
 * Consumo de APIs REST
-* Gerenciamento de estado global (Context API)
-* Criação de interfaces responsivas
-* Organização de código em arquitetura modular
+* Gerenciamento de estado com Context API
+* Criação de interfaces modernas e responsivas
+* Organização e arquitetura de código
 
 ---
 
 # 👨‍💻 Autor
 
+Desenvolvido por:
+
 **Leandro Freitas**
 
-Projeto acadêmico – Desafio Final
+Projeto acadêmico — Desafio Final
 Projeto Desenvolve Itabira
 
 ---
 
-# ✅ Status
+# ✅ Status do Projeto
 
-✔ Projeto finalizado
-✔ Bugs corrigidos
+✔ Finalizado
+✔ Funcional
 ✔ Pronto para avaliação
+✔ Pronto para deploy
