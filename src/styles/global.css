@@ -1,3 +1,12 @@
+:root {
+  --primary: #2ecc71;
+  --primary-dark: #27ae60;
+  --bg: #f5f5f5;
+  --text: #333;
+  --white: #ffffff;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -6,147 +15,366 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #74b4f5;
-  color: #333;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
 }
-
 
 /* CONTAINER */
 .container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
 }
 
+/* ================= BOTÕES ================= */
+.btn {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
 
-/* HEADER MODERNO */
+.btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* ================= HEADER ================= */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  background: #ffffff;
+  padding: 15px 30px;
+  background: var(--white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #007bff;
-  text-decoration: none;
+.logo img {
+  width: 120px;
+  border-radius: 10px;
 }
 
-.nav {
+.header-actions {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
-.nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+.user-info {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ================= CARRINHO ================= */
+.cart-button {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* ================= LOGIN ================= */
+.login-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   transition: 0.2s;
 }
 
-.nav a:hover {
-  color: #007bff;
+.login-card input:focus {
+  border-color: var(--primary);
 }
 
-.nav button {
-  background: #ff4d4d;
+.login-card button {
+  background: var(--primary);
   border: none;
-  padding: 6px 12px;
+  padding: 12px;
   color: white;
-  cursor: pointer;
   border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
+.login-card button:hover {
+  background: var(--primary-dark);
+}
 
-/* GRID */
+.login-card p {
+  margin-top: 15px;
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ================= BANNER ================= */
+.banner {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+/* ================= CATEGORIAS ================= */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.categories button {
+  padding: 8px 14px;
+  border: none;
+  background: #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.categories button.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* ================= PRODUTOS ================= */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-
-/* CARD PROFISSIONAL */
 .product-card {
-  background: white;
+  background: var(--white);
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
   text-align: center;
+  cursor: pointer;
   transition: 0.3s;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
 }
 
-.product-card img {
+.product-image-box {
   width: 100%;
-  height: 180px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-box img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  margin-bottom: 10px;
 }
 
 .product-card h3 {
-  font-size: 15px;
-  height: 40px;
-  overflow: hidden;
+  min-height: 40px;
 }
 
-.product-card p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #007bff;
-  margin: 10px 0;
-}
-
-
-/* BOTÕES MODERNOS */
-button {
-  background: #007bff;
+/* ================= FOOTER ================= */
+.footer {
+  background: #222;
   color: white;
-  border: none;
-  padding: 10px 15px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--primary);
+}
+
+/* PAGAMENTOS */
+.payment-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.payment-icons img {
+  width: 50px;
+  background: white;
+  padding: 6px;
   border-radius: 6px;
-  cursor: pointer;
   transition: 0.2s;
 }
 
-button:hover {
-  background: #0056b3;
+.payment-icons img:hover {
+  transform: scale(1.1);
 }
 
+/* ================= CARTÃO / PAGAMENTO ================= */
+.cart-summary {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
 
-/* FORMULÁRIOS */
-form {
+/* 💳 cartão visual */
+.credit-card {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+
+.credit-card:hover {
+  transform: scale(1.02);
+}
+
+.card-number {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* formulário */
+.payment-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 400px;
 }
 
-input,
-select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+.payment-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+  font-size: 14px;
 }
 
+.payment-form input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
 
-/* RESPONSIVO */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+/* RODAPÉ FINAL */
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  background: #111;
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+body.dark .header {
+  background: #000;
+}
+
+body.dark .product-card,
+body.dark .cart-summary {
+  background: #1e1e1e;
+}
+
+/* ================= RESPONSIVO ================= */
 @media(max-width:768px) {
-
   .header {
     flex-direction: column;
     gap: 10px;
   }
 
+  .cart-container {
+    flex-direction: column;
+  }
 }

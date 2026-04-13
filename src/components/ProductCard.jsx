@@ -1,25 +1,53 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { CartContext } from "../context/CartContext"
+import Rating from "./Rating"
 
 function ProductCard({ product }) {
 
   const { addToCart } = useContext(CartContext)
+  const navigate = useNavigate()
+
+  // Função para adicionar ao carrinho
+  function handleAdd(e) {
+    e.stopPropagation() // 🚫 evita abrir a página do produto
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.thumbnail
+    })
+  }
 
   return (
 
-    <div className="product-card">
+    <div
+      className="product-card"
+      onClick={() => navigate(`/product/${product.id}`)}
+    >
 
-      <Link to={`/product/${product.id}`}>
-        <img src={product.image} alt={product.title} />
-      </Link>
+      {/* IMAGEM */}
+      <img
+        src={product.thumbnail}
+        alt={product.title}
+      />
 
-      <h3>{product.title}</h3>
+      {/* NOME */}
+      <h3>
+        {product.title}
+      </h3>
 
-      <p>R$ {product.price.toFixed(2)}</p>
+      {/* ⭐ AVALIAÇÃO */}
+      <Rating rate={product.rating} />
 
-      <button onClick={() => addToCart(product)}>
-        🛒 Adicionar ao carrinho
+      {/* PREÇO */}
+      <p>
+        R$ {product.price}
+      </p>
+
+      {/* BOTÃO */}
+      <button onClick={handleAdd}>
+        Adicionar ao carrinho
       </button>
 
     </div>

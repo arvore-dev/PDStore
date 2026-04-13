@@ -1,52 +1,57 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+// Importa ferramentas de roteamento do React Router
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
+// ================= COMPONENTES GLOBAIS =================
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
+// ================= PÁGINAS =================
 import Home from "./pages/Home"
-import ProductDetails from "./pages/ProductDetails"
-import Cart from "./pages/Cart"
 import Login from "./pages/Login"
+import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
-
-import ProtectedRoute from "./components/ProtectedRoute"
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+import ProductDetail from "./pages/ProductDetail" // 👈 IMPORT ADICIONADO
 
 function App() {
 
   return (
 
-    <BrowserRouter>
+    // ================= ROTEADOR PRINCIPAL =================
+    <Router>
 
+      {/* ================= HEADER ================= */}
       <Header />
 
+      {/* ================= ROTAS ================= */}
       <Routes>
 
+        {/* Página inicial */}
         <Route path="/" element={<Home />} />
 
-        <Route path="/product/:id" element={<ProductDetails />} />
-
+        {/* Login */}
         <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/cart"
-          element={
-            <ProtectedRoute>
-              <Cart />
-            </ProtectedRoute>
-          }
-        />
+        {/* Carrinho */}
+        <Route path="/cart" element={<Cart />} />
 
-        <Route
-          path="/checkout"
-          element={
-            <ProtectedRoute>
-              <Checkout />
-            </ProtectedRoute>
-          }
-        />
+        {/* Checkout */}
+        <Route path="/checkout" element={<Checkout />} />
+
+        {/* 👇 NOVA ROTA DE DETALHE DO PRODUTO */}
+        <Route path="/product/:id" element={<ProductDetail />} />
+
+        {/* ================= PÁGINAS INSTITUCIONAIS ================= */}
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
 
       </Routes>
 
-    </BrowserRouter>
+      {/* ================= FOOTER ================= */}
+      <Footer />
+
+    </Router>
 
   )
 

@@ -1,22 +1,26 @@
-function Rating({ rate, count }) {
+function Rating({ rate }) {
 
+  // Array para armazenar as estrelas
   const stars = []
 
+  // Arredonda a nota (ex: 4.3 → 4)
   const roundedRate = Math.round(rate)
 
+  // Loop para gerar 5 estrelas
   for (let i = 1; i <= 5; i++) {
 
     if (i <= roundedRate) {
-      stars.push("⭐")
+      stars.push("⭐") // estrela cheia
     } else {
-      stars.push("☆")
+      stars.push("☆") // estrela vazia
     }
 
   }
 
   return (
     <div style={{ marginBottom: "8px" }}>
-      {stars.join(" ")} ({count})
+      {/* Exibe estrelas + nota formatada */}
+      {stars.join(" ")} ({rate.toFixed(1)} / 5)
     </div>
   )
 
