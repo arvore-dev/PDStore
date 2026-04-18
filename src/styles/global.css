@@ -45,6 +45,67 @@ body {
   transform: scale(1.05);
 }
 
+/* BOTÕES ESPECÍFICOS */
+.btn-add {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.btn-add:active {
+  transform: scale(0.95);
+}
+
+.btn-remove {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-remove:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.btn-remove:active {
+  transform: scale(0.95);
+}
+
+.checkout-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.checkout-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.03);
+}
+
 /* ================= HEADER ================= */
 .header {
   display: flex;
@@ -72,6 +133,10 @@ body {
 }
 
 /* ================= CARRINHO ================= */
+.cart-container {
+  margin-top: 30px;
+}
+
 .cart-button {
   position: relative;
   font-size: 22px;
@@ -87,6 +152,72 @@ body {
   font-size: 12px;
   padding: 2px 6px;
   border-radius: 50%;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.cart-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.cart-summary {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.cart-empty {
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* ================= TEXTO DO CARRINHO ================= */
+
+.cart-info h3 {
+  color: #222;
+  /* título mais escuro */
+  font-weight: 600;
+}
+
+.cart-info p {
+  color: #444;
+  /* descrição mais visível */
+  font-size: 14px;
+}
+
+/* preço mais destacado */
+.cart-info p:first-of-type {
+  color: #000;
+  font-weight: bold;
+}
+
+/* quantidade */
+.cart-info p:last-of-type {
+  color: #666;
 }
 
 /* ================= LOGIN ================= */
@@ -107,46 +238,168 @@ body {
   text-align: center;
 }
 
-.login-card h2 {
+/* ================= PAGAMENTO ================= */
+
+.payment-methods {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.payment-methods button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #ddd;
+}
+
+.payment-methods button.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* PIX */
+.pix-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pix-container img {
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+/* cartão já está estilizado no CSS */
+
+/* ================= CHECKOUT / PAGAMENTO ================= */
+
+.checkout-container {
+  margin-top: 20px;
+}
+
+.checkout-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* BLOCO DIREITO */
+.payment-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* MÉTODOS (botões PIX / CARTÃO) */
+.payment-method {
+  display: flex;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.login-card form {
+.payment-method button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ddd;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.payment-method button.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* FORMULÁRIO */
+.payment-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.login-card input {
-  padding: 12px;
+/* INPUT BONITO */
+.payment-form input,
+.frete-box input {
+  padding: 14px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: 0.2s;
+  font-size: 14px;
+  transition: 0.3s;
+  background: #fafafa;
 }
 
-.login-card input:focus {
+/* FOCO */
+.payment-form input:focus,
+.frete-box input:focus {
   border-color: var(--primary);
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
 }
 
-.login-card button {
+/* LINHA (validade + cvv) */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+/* FRETE */
+.frete-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.frete-box button {
   background: var(--primary);
   border: none;
-  padding: 12px;
+  padding: 12px 16px;
   color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
 }
 
-.login-card button:hover {
+.frete-box button:hover {
   background: var(--primary-dark);
 }
 
-.login-card p {
-  margin-top: 15px;
-  cursor: pointer;
-  color: var(--primary);
+/* BOTÃO FINAL */
+.checkout-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+}
+
+/* PIX */
+.pix-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pix-box img {
+  margin: 15px 0;
+  border-radius: 10px;
 }
 
 /* ================= BANNER ================= */
@@ -203,25 +456,7 @@ body {
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-}
-
-.product-image-box {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-image-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.product-card h3 {
-  min-height: 40px;
+  transform: translateY(-6px) scale(1.02);
 }
 
 /* ================= FOOTER ================= */
@@ -241,21 +476,6 @@ body {
   gap: 20px;
 }
 
-.footer-section {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footer a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: var(--primary);
-}
-
-/* PAGAMENTOS */
 .payment-icons {
   display: flex;
   gap: 15px;
@@ -276,82 +496,6 @@ body {
   transform: scale(1.1);
 }
 
-/* ================= CARTÃO / PAGAMENTO ================= */
-.cart-summary {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-}
-
-/* 💳 cartão visual */
-.credit-card {
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
-  color: white;
-  padding: 20px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  height: 180px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;
-}
-
-.credit-card:hover {
-  transform: scale(1.02);
-}
-
-.card-number {
-  font-size: 20px;
-  letter-spacing: 3px;
-}
-
-.card-bottom {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-}
-
-/* formulário */
-.payment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.payment-form input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: 0.2s;
-  font-size: 14px;
-}
-
-.payment-form input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
-}
-
-.row {
-  display: flex;
-  gap: 10px;
-}
-
-.row input {
-  flex: 1;
-}
-
-/* RODAPÉ FINAL */
-.footer-bottom {
-  text-align: center;
-  padding: 15px;
-  background: #111;
-}
-
 /* ================= DARK MODE ================= */
 body.dark {
   background: #121212;
@@ -367,6 +511,20 @@ body.dark .cart-summary {
   background: #1e1e1e;
 }
 
+/* ================= CORREÇÃO LINKS DO FOOTER ================= */
+
+.footer a {
+  color: #ffffff;
+  /* branco */
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.footer a:hover {
+  color: var(--primary);
+  /* verde no hover */
+}
+
 /* ================= RESPONSIVO ================= */
 @media(max-width:768px) {
   .header {
@@ -374,7 +532,9 @@ body.dark .cart-summary {
     gap: 10px;
   }
 
-  .cart-container {
+  .cart-item {
     flex-direction: column;
+    text-align: center;
+    gap: 10px;
   }
 }

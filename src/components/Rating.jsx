@@ -1,26 +1,31 @@
-function Rating({ rate }) {
+function Rating({ value = 0 }) {
 
-  // Array para armazenar as estrelas
+  // Garante que sempre seja número válido
+  const rating = Number(value) || 0
+
   const stars = []
 
-  // Arredonda a nota (ex: 4.3 → 4)
-  const roundedRate = Math.round(rate)
-
-  // Loop para gerar 5 estrelas
   for (let i = 1; i <= 5; i++) {
 
-    if (i <= roundedRate) {
-      stars.push("⭐") // estrela cheia
+    if (i <= Math.floor(rating)) {
+      // estrela cheia
+      stars.push(<span key={i}>⭐</span>)
+    } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+      // meia estrela (simulada)
+      stars.push(<span key={i}>⭐</span>)
     } else {
-      stars.push("☆") // estrela vazia
+      // estrela vazia
+      stars.push(<span key={i}>☆</span>)
     }
 
   }
 
   return (
-    <div style={{ marginBottom: "8px" }}>
-      {/* Exibe estrelas + nota formatada */}
-      {stars.join(" ")} ({rate.toFixed(1)} / 5)
+    <div style={{ margin: "8px 0" }}>
+      {stars}
+      <span style={{ marginLeft: "5px", fontSize: "14px" }}>
+        ({rating})
+      </span>
     </div>
   )
 
